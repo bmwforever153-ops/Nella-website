@@ -41,14 +41,14 @@ export function ServicePackages({
             )}
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
             {/* Vehicle size filter toggle */}
-            <div className="flex shrink-0 items-center rounded-xl border border-border bg-secondary/60 p-1.5 backdrop-blur">
+            <div className="flex w-full sm:w-auto shrink-0 items-center justify-between rounded-xl border border-border bg-secondary/60 p-1 backdrop-blur">
               <button
                 type="button"
                 onClick={() => setVehicleSize("all")}
                 className={cn(
-                  "rounded-lg px-3 py-1.5 text-xs font-semibold transition-all",
+                  "flex-1 sm:flex-initial text-center rounded-lg px-3 py-2 text-xs font-semibold transition-all",
                   vehicleSize === "all"
                     ? "bg-background text-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground",
@@ -60,7 +60,7 @@ export function ServicePackages({
                 type="button"
                 onClick={() => setVehicleSize("sedan")}
                 className={cn(
-                  "flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all",
+                  "flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-xs font-semibold transition-all",
                   vehicleSize === "sedan"
                     ? "bg-background text-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground",
@@ -72,7 +72,7 @@ export function ServicePackages({
                 type="button"
                 onClick={() => setVehicleSize("suv")}
                 className={cn(
-                  "flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all",
+                  "flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-xs font-semibold transition-all",
                   vehicleSize === "suv"
                     ? "bg-background text-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground",
@@ -143,7 +143,7 @@ export function ServicePackages({
               </div>
 
               {/* Card Body */}
-              <div className="flex flex-1 flex-col p-6 sm:p-7">
+              <div className="flex flex-1 flex-col p-5 sm:p-7">
                 {/* Tier and Title */}
                 <div className="mb-3 flex items-center justify-between">
                   <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
@@ -208,7 +208,7 @@ export function ServicePackages({
                     asChild
                     variant={isFeatured ? "premium" : "soft"}
                     size="lg"
-                    className="w-full font-semibold shadow-sm transition-all"
+                    className="h-12 w-full font-semibold shadow-sm transition-all"
                     onClick={() => onSelectPackage?.(pkg)}
                   >
                     <Link to="/contact">

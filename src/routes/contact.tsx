@@ -103,51 +103,83 @@ function ContactPage() {
               </p>
               <div className="mt-8 grid gap-6 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Full name</Label>
-                  <Input id="name" name="name" required placeholder="Your name" />
+                  <Label htmlFor="name" className="text-sm font-medium">
+                    Full name
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    required
+                    autoComplete="name"
+                    placeholder="Your name"
+                    className="h-11 text-base sm:text-sm"
+                  />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone number</Label>
+                  <Label htmlFor="phone" className="text-sm font-medium">
+                    Phone number
+                  </Label>
                   <Input
                     id="phone"
                     name="phone"
                     type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
                     required
                     placeholder="Best number to reach you"
+                    className="h-11 text-base sm:text-sm"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="vehicle">Vehicle</Label>
-                  <Input id="vehicle" name="vehicle" required placeholder="Year, make and model" />
+                  <Label htmlFor="vehicle" className="text-sm font-medium">
+                    Vehicle
+                  </Label>
+                  <Input
+                    id="vehicle"
+                    name="vehicle"
+                    required
+                    placeholder="Year, make and model"
+                    className="h-11 text-base sm:text-sm"
+                  />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="service">Package</Label>
+                  <Label htmlFor="service" className="text-sm font-medium">
+                    Package
+                  </Label>
                   <select
                     id="service"
                     name="service"
                     required
-                    className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                    className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-base sm:text-sm shadow-xs outline-none focus-visible:ring-1 focus-visible:ring-ring"
                   >
                     <option value="">Choose one</option>
-                    <option>The Quick Spell — $75–$100</option>
-                    <option>The Full Enchantment — $125–$150</option>
-                    <option>Midnight Magic — $200–$225</option>
+                    <option>Basic — The Quick Spell ($75–$100)</option>
+                    <option>Interior — The Full Enchantment ($125–$150)</option>
+                    <option>Full Detail — Midnight Magic ($200–$225)</option>
                     <option>Not sure yet</option>
                   </select>
                 </div>
                 <div className="space-y-2 sm:col-span-2">
-                  <Label htmlFor="message">What needs attention?</Label>
+                  <Label htmlFor="message" className="text-sm font-medium">
+                    What needs attention?
+                  </Label>
                   <Textarea
                     id="message"
                     name="message"
                     required
-                    rows={6}
+                    rows={4}
                     placeholder="Tell us about the vehicle's condition and what you would like cleaned."
+                    className="text-base sm:text-sm"
                   />
                 </div>
               </div>
-              <Button type="submit" variant="premium" size="lg" className="mt-7 w-full">
-                <Send /> Prepare enquiry
+              <Button
+                type="submit"
+                variant="premium"
+                size="lg"
+                className="mt-7 h-12 w-full text-base font-semibold shadow-md"
+              >
+                <Send className="size-4" /> Prepare enquiry
               </Button>
             </form>
           )}

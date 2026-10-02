@@ -67,14 +67,14 @@ export function CustomerTestimonials({
         </div>
 
         {/* View mode toggle (Carousel vs Grid) and Tier Filter */}
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
           {/* Tier Filter */}
-          <div className="flex shrink-0 items-center rounded-xl border border-border bg-secondary/60 p-1 backdrop-blur">
+          <div className="flex w-full overflow-x-auto no-scrollbar sm:w-auto shrink-0 items-center rounded-xl border border-border bg-secondary/60 p-1 backdrop-blur">
             <button
               type="button"
               onClick={() => setTierFilter("all")}
               className={cn(
-                "rounded-lg px-2.5 py-1 text-xs font-semibold transition-all",
+                "flex-1 sm:flex-initial text-center rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all whitespace-nowrap",
                 tierFilter === "all"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-muted-foreground hover:text-foreground",
@@ -86,7 +86,7 @@ export function CustomerTestimonials({
               type="button"
               onClick={() => setTierFilter("Basic")}
               className={cn(
-                "rounded-lg px-2.5 py-1 text-xs font-semibold transition-all",
+                "flex-1 sm:flex-initial text-center rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all whitespace-nowrap",
                 tierFilter === "Basic"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-muted-foreground hover:text-foreground",
@@ -98,7 +98,7 @@ export function CustomerTestimonials({
               type="button"
               onClick={() => setTierFilter("Interior")}
               className={cn(
-                "rounded-lg px-2.5 py-1 text-xs font-semibold transition-all",
+                "flex-1 sm:flex-initial text-center rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all whitespace-nowrap",
                 tierFilter === "Interior"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-muted-foreground hover:text-foreground",
@@ -110,7 +110,7 @@ export function CustomerTestimonials({
               type="button"
               onClick={() => setTierFilter("Full Detail")}
               className={cn(
-                "rounded-lg px-2.5 py-1 text-xs font-semibold transition-all",
+                "flex-1 sm:flex-initial text-center rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all whitespace-nowrap",
                 tierFilter === "Full Detail"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-muted-foreground hover:text-foreground",
@@ -121,13 +121,13 @@ export function CustomerTestimonials({
           </div>
 
           {/* Layout switcher */}
-          <div className="flex shrink-0 items-center rounded-xl border border-border bg-secondary/60 p-1 backdrop-blur">
+          <div className="flex shrink-0 self-end sm:self-auto items-center rounded-xl border border-border bg-secondary/60 p-1 backdrop-blur">
             <button
               type="button"
               onClick={() => setLayout("carousel")}
               aria-label="Carousel view"
               className={cn(
-                "flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold transition-all",
+                "flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all",
                 layout === "carousel"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-muted-foreground hover:text-foreground",
@@ -141,7 +141,7 @@ export function CustomerTestimonials({
               onClick={() => setLayout("grid")}
               aria-label="Grid view"
               className={cn(
-                "flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold transition-all",
+                "flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all",
                 layout === "grid"
                   ? "bg-background text-foreground shadow-sm"
                   : "text-muted-foreground hover:text-foreground",
@@ -212,7 +212,10 @@ export function CustomerTestimonials({
             >
               <CarouselContent className="-ml-4 sm:-ml-6">
                 {filteredTestimonials.map((item) => (
-                  <CarouselItem key={item.id} className="pl-4 sm:pl-6 md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem
+                    key={item.id}
+                    className="pl-4 sm:pl-6 basis-[86%] sm:basis-1/2 lg:basis-1/3"
+                  >
                     <TestimonialCard item={item} />
                   </CarouselItem>
                 ))}
@@ -283,7 +286,7 @@ function TestimonialCard({ item }: { item: Testimonial }) {
     .slice(0, 2);
 
   return (
-    <article className="pop-card group relative flex h-full flex-col justify-between rounded-2xl border border-border bg-card p-6 shadow-sm transition-all sm:p-7">
+    <article className="pop-card group relative flex h-full flex-col justify-between rounded-2xl border border-border bg-card p-5 shadow-sm transition-all sm:p-7">
       {/* Top row: Rating Stars and Quote Icon */}
       <div>
         <div className="flex items-center justify-between">

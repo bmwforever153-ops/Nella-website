@@ -57,8 +57,8 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="mx-auto max-w-[92rem] px-3 pb-8 pt-3 sm:px-6 sm:pb-16">
-      <div className="relative min-h-[660px] overflow-hidden rounded-[1.75rem] sm:min-h-[720px]">
+    <section className="mx-auto max-w-[92rem] px-3 pb-6 pt-2 sm:px-6 sm:pb-16 sm:pt-3">
+      <div className="relative min-h-[560px] overflow-hidden rounded-[1.5rem] sm:min-h-[720px] sm:rounded-[1.75rem]">
         <img
           src={images.heroImage}
           alt="Freshly detailed white luxury sedan at sunset"
@@ -66,30 +66,45 @@ function Hero() {
           height={1024}
           className="absolute inset-0 size-full object-cover object-[64%_center]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--color-background)_0%,color-mix(in_oklab,var(--color-background)_92%,transparent)_26%,color-mix(in_oklab,var(--color-background)_25%,transparent)_62%,transparent_100%)]" />
-        <div className="relative flex min-h-[660px] max-w-7xl flex-col justify-center px-6 py-16 sm:min-h-[720px] sm:px-12 lg:px-16">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-background/80 px-3 py-2 text-xs font-semibold shadow-sm backdrop-blur">
-            <span className="size-2 rounded-full bg-accent" /> Now welcoming enquiries
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-background)_95%,transparent)_0%,color-mix(in_oklab,var(--color-background)_70%,transparent)_45%,transparent_100%)] sm:bg-[linear-gradient(90deg,var(--color-background)_0%,color-mix(in_oklab,var(--color-background)_92%,transparent)_26%,color-mix(in_oklab,var(--color-background)_25%,transparent)_62%,transparent_100%)]" />
+
+        <div className="relative flex min-h-[560px] max-w-7xl flex-col justify-center px-5 py-12 sm:min-h-[720px] sm:px-12 lg:px-16">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-background/85 px-3 py-1.5 text-xs font-semibold shadow-xs backdrop-blur">
+            <span className="size-2 rounded-full bg-accent animate-pulse" /> Mobile detailing direct
+            to you
           </div>
-          <h1 className="mt-7 max-w-3xl text-5xl font-semibold leading-[0.92] sm:text-7xl lg:text-[5.5rem]">
+          <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-[0.95] xs:text-5xl sm:text-7xl lg:text-[5.5rem]">
             A little magic.
             <br />A lot of clean.
           </h1>
-          <p className="mt-7 max-w-md text-base leading-7 text-muted-foreground sm:text-lg">
+          <p className="mt-5 max-w-md text-sm leading-6 text-muted-foreground sm:text-lg sm:leading-7">
             {business.tagline}
           </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Button asChild variant="premium" size="lg">
+
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button
+              asChild
+              variant="premium"
+              size="lg"
+              className="h-12 w-full sm:w-auto font-semibold shadow-md"
+            >
               <Link to="/contact">
-                <Sparkles /> Book your detail <ArrowRight />
+                <Sparkles className="size-4" /> Book your detail <ArrowRight className="size-4" />
               </Link>
             </Button>
-            <Button asChild variant="soft" size="lg">
+            <Button
+              asChild
+              variant="soft"
+              size="lg"
+              className="h-12 w-full sm:w-auto font-semibold"
+            >
               <Link to="/services">Explore services</Link>
             </Button>
           </div>
         </div>
-        <div className="absolute inset-x-4 bottom-4 grid gap-px overflow-hidden rounded-2xl border border-border bg-border/70 sm:grid-cols-3 lg:inset-x-8">
+
+        {/* Desktop floating feature bar */}
+        <div className="absolute inset-x-4 bottom-4 hidden overflow-hidden rounded-2xl border border-border bg-border/70 sm:grid sm:grid-cols-3 lg:inset-x-8">
           {[
             { Icon: ShieldCheck, title: "Careful service", text: "Every surface considered" },
             { Icon: WandSparkles, title: "Inside or out", text: "Choose your level of clean" },
@@ -109,6 +124,7 @@ function Hero() {
             </div>
           ))}
         </div>
+
         <a
           href="#packages"
           aria-label="Scroll down to packages"
@@ -116,6 +132,27 @@ function Hero() {
         >
           <ArrowDown className="size-4" />
         </a>
+      </div>
+
+      {/* Mobile feature highlights row */}
+      <div className="mt-3 grid grid-cols-3 gap-2 sm:hidden">
+        {[
+          { Icon: ShieldCheck, title: "Careful Care" },
+          { Icon: WandSparkles, title: "Mobile Service" },
+          { Icon: MapPin, title: "Fast Booking" },
+        ].map(({ Icon, title }) => (
+          <div
+            key={title}
+            className="flex flex-col items-center justify-center rounded-xl border border-border bg-card/80 p-3 text-center backdrop-blur shadow-2xs"
+          >
+            <span className="grid size-8 place-items-center rounded-full bg-secondary text-foreground">
+              <Icon className="size-3.5 text-accent-foreground" />
+            </span>
+            <span className="mt-1.5 text-[11px] font-semibold tracking-tight text-foreground">
+              {title}
+            </span>
+          </div>
+        ))}
       </div>
     </section>
   );
