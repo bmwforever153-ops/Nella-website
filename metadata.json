@@ -1,0 +1,6 @@
+{
+  "name": "Nella's Enchanted Detailing",
+  "description": "Premium mobile auto detailing services website with instant quote requests and service packages.",
+  "requestFramePermissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
